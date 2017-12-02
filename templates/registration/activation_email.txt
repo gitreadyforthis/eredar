@@ -1,0 +1,8 @@
+greetings
+
+you just signed up for an account at {{site.name}} please click to activate
+
+http://{{site.domain}}{% url 'registration_activate' activation_key %}
+this link is valid for {{expiration_days}}. if it werent you that did this you can ignore
+
+-Readify Staff
