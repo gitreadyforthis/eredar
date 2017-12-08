@@ -1,4 +1,5 @@
 from django.contrib.auth.models import User
+from django.core.validators import FileExtensionValidator
 from django.db import models
 from django.utils import timezone
 
@@ -19,7 +20,8 @@ class Book(models.Model):
     author = models.ForeignKey(Author)
     description = models.TextField()
     pub_date = models.DateField(default=timezone.now)
-    owner = models.ForeignKey(User)
+    document = models.FileField(upload_to='books/', validators=[FileExtensionValidator(['epub'])])
+    uploaded_at = models.DateTimeField(auto_now_add=True)
 
 
 class Review(models.Model):

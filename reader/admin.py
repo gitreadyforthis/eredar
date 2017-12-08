@@ -7,7 +7,7 @@ from .models import Book, Author, Review
 
 
 class BooksAdmin(admin.ModelAdmin):
-    list_display = ('title', 'author', 'owner', 'pub_date')
+    list_display = ('title', 'author', 'pub_date')
 
 
 class AuthorAdmin(admin.ModelAdmin):

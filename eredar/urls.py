@@ -14,13 +14,19 @@ Including another URLconf
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
 from django.conf.urls import url, include
+from django.conf.urls.static import static
 from django.contrib import admin
 
+from eredar import settings
 from reader import views
 
 urlpatterns = [
     url(r'^$', views.homepage, name="homepage"),
     url(r'^accounts/', include('registration.backends.simple.urls')),
     url(r'^book/(\d+)', views.book_details, name='book_details'),
+    url(r'^upload/', views.book_upload_form, name='upload'),
+    url(r'reader/(\d+)', views.epub_read, name='reader'),
     url(r'^admin/', admin.site.urls),
 ]
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -18,7 +18,9 @@
                 {% else %}
                     there are no reviews yet
                 {% endif %}
+
             </div>
+            <div class="btn btn-default"><a href="{% url 'reader' book.id %}">read book</a></div>
         </div>
     </div>
 {% endblock %}
